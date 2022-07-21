@@ -1,20 +1,20 @@
-import React from 'react';
-import cond from 'cond-flow';
-import styled from 'styled-components/native';
+import React from 'react'
+import cond from 'cond-flow'
+import styled from 'styled-components/native'
 
-import {usePlayerState} from '../model/hooks';
-import LifeCount from './LifeCount';
+import {usePlayerState} from '../model/hooks'
+import LifeCount from './LifeCount'
 
 const Background = styled.View({
   backgroundColor: 'green',
   flex: 1,
-});
+})
 
-type PlayerBoardPosition = 'Top' | 'Bottom';
+type PlayerBoardPosition = 'Top' | 'Bottom'
 
 interface PlayerBoardProps {
-  index: number;
-  rotation: PlayerBoardPosition;
+  index: number
+  rotation: PlayerBoardPosition
 }
 
 const getTransform = (r: PlayerBoardPosition) => ({
@@ -27,11 +27,11 @@ const getTransform = (r: PlayerBoardPosition) => ({
       ]) as string,
     },
   ],
-});
+})
 
 const PlayerBoard = (props: PlayerBoardProps) => {
-  const playerState = usePlayerState(props.index);
-  const transform = getTransform(props.rotation);
+  const playerState = usePlayerState(props.index)
+  const transform = getTransform(props.rotation)
 
   return (
     <Background style={transform}>
@@ -45,7 +45,7 @@ const PlayerBoard = (props: PlayerBoardProps) => {
         }
       />
     </Background>
-  );
-};
+  )
+}
 
-export default PlayerBoard;
+export default PlayerBoard
