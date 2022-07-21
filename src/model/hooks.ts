@@ -1,18 +1,18 @@
-import R from 'ramda';
-import {useDispatch, useSelector} from 'react-redux';
-import {setPlayerState} from './lifeSlice';
+import R from 'ramda'
+import {useDispatch, useSelector} from 'react-redux'
+import {setPlayerState} from './lifeSlice'
 
-const shift = (list: number[], n: number) => R.append(n, R.takeLast(4, list));
+const shift = (list: number[], n: number) => R.append(n, R.takeLast(4, list))
 
 export function usePlayerState(index: number) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const playerState = useSelector<
     LifeCounterState.GlobalState,
     LifeCounterState.PlayerLifeState
-  >((state: LifeCounterState.GlobalState) => state.players[index]);
+  >((state: LifeCounterState.GlobalState) => state.players[index])
 
   if (playerState === undefined) {
-    throw new Error('Undefined Player Index');
+    throw new Error('Undefined Player Index')
   }
 
   return {
@@ -28,5 +28,5 @@ export function usePlayerState(index: number) {
           },
         }),
       ),
-  };
+  }
 }

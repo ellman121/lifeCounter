@@ -1,25 +1,25 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import styled from 'styled-components/native'
 
 const Container = styled.View({
   flexDirection: 'row',
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-});
+})
 
 const Text = styled.Text({
   backgroundColor: 'yellow',
-});
+})
 
 const Button = styled.Button({
   backgroundColor: 'yellow',
-});
+})
 
 interface LifeCountProps {
-  value: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
+  value: number
+  onIncrement: () => void
+  onDecrement: () => void
 }
 
 const LifeCount = (props: LifeCountProps) => {
@@ -29,7 +29,7 @@ const LifeCount = (props: LifeCountProps) => {
       <Text>{props.value}</Text>
       <Button title="-" onPress={props.onDecrement} />
     </Container>
-  );
-};
+  )
+}
 
-export default LifeCount;
+export default LifeCount
