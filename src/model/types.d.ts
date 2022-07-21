@@ -1,20 +1,11 @@
-declare module LifeCounterState {
-  interface PlayerCounterState {
-    [counterType: string]: number
-  }
-
-  interface PlayerLifeState {
+interface PlayerState {
+  life: {
     value: number
     history: number[]
-    counters: PlayerCounterState
   }
+  counters: {}
+}
 
-  interface SettingsState {
-    defaultValue: number
-  }
-
-  interface GlobalState {
-    players: PlayerLifeState[]
-    settings: SettingsState
-  }
+interface SettingsState {
+  defaultPlayerState: PlayerState
 }

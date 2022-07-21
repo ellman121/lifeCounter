@@ -3,7 +3,6 @@ import styled from 'styled-components/native'
 
 const Container = styled.View({
   flexDirection: 'row',
-  flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
 })
@@ -25,9 +24,9 @@ interface LifeCountProps {
 const LifeCount = (props: LifeCountProps) => {
   return (
     <Container>
-      <Button title="+" onPress={props.onIncrement} />
-      <Text>{props.value}</Text>
       <Button title="-" onPress={props.onDecrement} />
+      <Text>{props.value}</Text>
+      <Button title="+" onPress={props.onIncrement} />
     </Container>
   )
 }

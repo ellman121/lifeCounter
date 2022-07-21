@@ -2,12 +2,14 @@ import React from 'react'
 import cond from 'cond-flow'
 import styled from 'styled-components/native'
 
-import {usePlayerState} from '../model/hooks'
+import {usePlayer} from '../model/playerState'
 import LifeCount from './LifeCount'
+import {Text} from 'react-native'
 
 const Background = styled.View({
-  backgroundColor: 'green',
   flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center'
 })
 
 type PlayerBoardPosition = 'Top' | 'Bottom'
@@ -29,21 +31,26 @@ const getTransform = (r: PlayerBoardPosition) => ({
   ],
 })
 
+const defaultPlayerState: PlayerState = {
+  counters: {},
+  life: {
+    history: [],
+    value: 20,
+  },
+}
+
 const PlayerBoard = (props: PlayerBoardProps) => {
-  const playerState = usePlayerState(props.index)
+  const player = usePlayer(defaultPlayerState)
   const transform = getTransform(props.rotation)
 
   return (
     <Background style={transform}>
       <LifeCount
-        value={playerState.current.value}
-        onIncrement={() =>
-          playerState.setLifeCount(playerState.current.value + 1)
-        }
-        onDecrement={() =>
-          playerState.setLifeCount(playerState.current.value - 1)
-        }
+        value={player.state.life.value}
+        onIncrement={player.incrementLife}
+        onDecrement={player.decrementLife}
       />
+      <Text>{JSON.stringify(player.state.life.history)}</Text>
     </Background>
   )
 }
