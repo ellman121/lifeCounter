@@ -6,7 +6,7 @@ interface MainScreenProps {}
 export const MainScreen = (props: MainScreenProps) => {
   return (
     <>
-      <PlayerBoard index={0} rotation="Bottom" />
+      <PlayerBoard index={0} rotation="Top" />
       <PlayerBoard index={1} rotation="Bottom" />
     </>
   )
